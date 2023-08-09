@@ -147,7 +147,7 @@ function  TimeLine(){
 
 }
 
-function Card({email , shippingAddress , BillingAddress}){
+function Card({email , shippingAddress  , BillingAddress}){
     return (
         
     <div className="sm:block hidden flex flex-col shadow-md shadow-gray-300 rounded-lg w-fit flex-1">

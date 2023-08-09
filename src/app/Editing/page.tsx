@@ -11,24 +11,15 @@ const QuillEditor = dynamic(() => import('react-quill'), { ssr: false });
 
 import * as React from "react"
 
-import { Button } from "~/components/ui/button"
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardFooter,
   CardHeader,
-  CardTitle,
+  CardTitle, 
 } from "~/components/ui/card"
 import { Input } from "~/components/ui/input"
 import { Label } from "~/components/ui/label"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "~/components/ui/select"
+
 
 function CardWithForm() {
   return (
@@ -74,8 +65,8 @@ function AddProducts(){
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="framework">Description</Label>
-              <div className="py-10 h-55 overflow-y-scroll">
-                <QuillEditor  className="h-full"  theme="snow" value={value} onChange={setValue} />
+              <div className="py-10 h-[19em]">
+                <QuillEditor  className="h-full"  theme="snow" value={value} onChange={setValue}  />
               </div>
             </div>
           </div>
@@ -93,16 +84,16 @@ function AdditionalDetails(){
       </CardHeader>
       <CardContent>
         <form>
-          <div className="w-full items-center gap-4 flex justify-between">
-            <div className="flex flex-col space-y-1.5">
+          <div className="w-full items-center gap-4 flex justify-between flex-col sm:flex-row ">
+            <div className="flex flex-col space-y-1.5 w-full">
               <Label htmlFor="pricing">Add pricing</Label>
               <Label className="text-gray-400">Add the price of your product</Label>
-              <Input id="pricing" placeholder="" />
+              <Input id="pricing" placeholder="" className="lg:w-full"/>
             </div>
-            <div className="flex flex-col space-y-1.5">
+            <div className="flex flex-col space-y-1.5 w-full">
               <Label htmlFor="quantity">Add quantity</Label>
               <Label className="text-gray-400">Add the quantity of availiability of your product.</Label>
-              <Input id="quantity" placeholder=""></Input>
+              <Input id="quantity" placeholder="" className="lg:w-full"></Input>
             </div>
           </div>
         </form>
