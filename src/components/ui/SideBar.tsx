@@ -10,9 +10,19 @@ import Inventory from "~/app/Inventory/page";
 import Order from "~/app/Orders/page";
 
 
-function SideMenu({ icon , menuName , options }) {
+function SideMenu({ icon , menuName , options , onClick }) {
 
   const [menuPressed, setMenuPressed] = useState(false);
+
+  function handlePageSelection(option){
+    if (option === "Inventory"){
+      onClick(<Inventory/>);
+    }
+    else if (option === "Collections"){
+      onClick(<Order/>);
+    }
+  }
+  
   
   return (
     <div
@@ -38,7 +48,9 @@ function SideMenu({ icon , menuName , options }) {
         {menuPressed ? (
           <div className=" w-full ml-5 ">
             {options.map((option:any, index:any) => (
-              <div className="flex items-center justify-end active:bg-orange-300 hover:bg-red-700 px-2 ml-5">
+              <div 
+              onClick={() => handlePageSelection(option.name)} 
+              className="flex items-center justify-end active:bg-orange-300 hover:bg-red-700 px-2 ml-5">
                 <div>
                     {option.icon}
                 </div>
@@ -58,7 +70,6 @@ function SideMenu({ icon , menuName , options }) {
 export default function SideBar({page}){
 
     const [handBurger , setHandBurger] = useState(false);
-    const [pageSelection , setPageSelection] = useState(null);
     const [currentPage , setCurrentPage] = useState(page);
 
     const options = [
@@ -112,14 +123,7 @@ export default function SideBar({page}){
     //     </div>
     // );
 
-    function handlePageSelection(option){
-      if (option === "Inventory"){
-        setCurrentPage(<Inventory/>);
-      }
-      else if (option === "Orders"){
-        setCurrentPage(<Order/>);
-      }
-    }
+    
 
     return (
       <div className="w-screen h-screen">
@@ -133,18 +137,18 @@ export default function SideBar({page}){
           <div className={`bg-[#ec4755] text-white p-2 px-5 w-[17rem] ${(handBurger)?"visible":"hidden"}` }>
             {/* Side bar container */}
             {options.map((option , index) => (
-              <div onClick={() => handlePageSelection(option.name)}>
                   <SideMenu 
                       icon={option.icon} 
                       menuName={option.name} 
                       options={option.optionlist} 
                       key={index}
+                      onClick = {setCurrentPage}
                   />
-              </div>
             ))}
             
           </div>
           <div className="w-full">
+              {/* {console.log(currentPage)} */}
               {currentPage}
           </div>
         </div>
