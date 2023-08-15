@@ -22,7 +22,7 @@ export default async function Home() {
 
   return (
     <main className=" ">
-      <Main pages={<SignUpPage/>}/>
+      <Main pages={<Inventory/>}/>
       <Toaster />
     </main>
   );
