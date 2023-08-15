@@ -65,8 +65,9 @@ function AddProducts(){
             </div>
             <div className="flex flex-col space-y-1.5">
               <Label htmlFor="framework">Description</Label>
-              <div className="py-10 h-[19em]">
-                <QuillEditor  className="h-full"  theme="snow" value={value} onChange={setValue}  />
+              <div className="md:py-10 h-[19rem]">
+                <QuillEditor  className="h-full max-lg:hidden"  theme="snow" value={value} onChange={setValue}  />
+                <textarea placeholder="Enter the Description" className="border border-dashed md:hidden rounded-md bg-gray-100 w-full h-full resize-none outline-none p-2"/>
               </div>
             </div>
           </div>
