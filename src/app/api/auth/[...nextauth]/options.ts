@@ -1,8 +1,6 @@
 import { NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
-
-
 export const options : NextAuthOptions = {
     providers : [
         Credentials({
@@ -20,16 +18,13 @@ export const options : NextAuthOptions = {
                 }
             },
             async authorize(credentials) {
-
-                const user = {id : 1 , name : "harish" , password : "123"}
-
+                const user = { name : "harishm" , password : "123"}
                 if (credentials?.username === user.name && credentials?.password === user.password){
                     return user
                 }
                 else{
                     return null
                 }
-                
             }
         }),
     ]
