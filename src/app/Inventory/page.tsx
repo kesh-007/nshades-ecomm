@@ -36,6 +36,7 @@ import {
 
 import {FiEdit2} from "react-icons/fi";
 import Link from "next/link";
+import { Layout } from "lucide-react";
 
 const data: Payment[] = [
   {
@@ -90,7 +91,7 @@ export const columns: ColumnDef<Payment>[] = [
     accessorKey: "imageURL",
     header: "Preview",
     cell: ({ row }) => (
-      <img src={row.getValue("imageURL")} className="h-[5rem] w-[5rem] object-cover rounded shadow-lg shadow-gray-500/50" />
+      <img src={row.getValue("imageURL")} className="h-[5rem] w-[5rem] object-cover rounded-lg shadow-lg shadow-gray-500/50" />
     ),
   },
   {
@@ -98,7 +99,7 @@ export const columns: ColumnDef<Payment>[] = [
     header: "Product Name",
     cell: ({ row }) => (
       <Link href="/Editing">
-            <div className="capitalize text-orange-500 font-bold">{row.getValue("product")}</div>
+            <div className="capitalize text-[#ec4755] font-bold">{row.getValue("product")}</div>
       </Link>
     ),
   },
@@ -131,7 +132,7 @@ export const columns: ColumnDef<Payment>[] = [
 
       return (
         <Link className="flex flex-1" href={"/Editing"}>
-            <div className="font-bold text-white md:w-[50%] bg-orange-400 p-2 flex rounded shadow-lg shadow-gray-300 justify-between ">
+            <div className="font-bold text-white md:w-[50%] bg-[#ec4755] p-2 flex rounded justify-between ">
               <p>Edit</p>
               <FiEdit2/>
             </div>
@@ -171,11 +172,11 @@ function DataTable() {
   })
 
   return (
-    <div className="w-full shadow-lg shadow-500/50 p-3 rounded">
+    <div className="w-full border p-3 rounded">
       <div className="flex items-center py-4 w-full">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto bg-gray-200">
+            <Button variant="outline" className="ml-auto bg-gray-200 ">
               Filters <ChevronDownIcon className="ml-2 h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
@@ -269,7 +270,8 @@ function DataTable() {
             variant="outline"
             size="sm"
             onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
+            //disabled={!table.getCanPreviousPage()}
+            className=" text-black hover:bg-gray-300"
           >
             Previous
           </Button>
@@ -277,7 +279,8 @@ function DataTable() {
             variant="outline"
             size="sm"
             onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
+           // disabled={!table.getCanNextPage()}
+            className="text-black bg-gray-200"
           >
             Next
           </Button>
@@ -286,8 +289,6 @@ function DataTable() {
     </div>
   )
 }
-
-
 
 export default function Inventory(){
 
@@ -301,16 +302,15 @@ export default function Inventory(){
             <div>
                 <div className="flex gap-10">
                     <div className="flex gap-2">
-                        <button className="text-orange-500 border border-orange-500 rounded p-2">Export</button>
-                        <button className="text-orange-500 border border-orange-500 rounded p-2">Import</button>
+                        <button className="text-[#ec4755] border  border-orange-500 rounded p-2">Export</button>
+                        <button className="text-[#ec4755] border border-orange-500 rounded p-2">Import</button>
                     </div>
-                    <button className="text-white bg-orange-500 p-2 rounded">Manage Directory</button>
+                    <button className="text-white bg-[#ec4755] p-2 rounded">Manage Directory</button>
                 </div>
             </div>
             <div className="my-10">
                 <DataTable/>
             </div>
-
         </div>
     );
 }

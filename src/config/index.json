@@ -1,0 +1,166 @@
+{
+  "company": {
+    "name": "React landing page 2021",
+    "logo": "/assets/images/logo.png"
+  },
+  "navigation": [
+    {
+      "name": "Product",
+      "href": "product"
+    },
+    {
+      "name": "Features",
+      "href": "features"
+    },
+
+    {
+      "name": "Pricing",
+      "href": "pricing"
+    },
+    {
+      "name": "About",
+      "href": "about"
+    }
+  ],
+  "callToAction": {
+    "text": "Get started",
+    "href": "#"
+  },
+  "signup":{
+    "img" : "/assets/images/signupSVG.svg"
+  },
+  "mainHero": {
+    "title": "NShades",
+    "subtitle": "Your Gateway to Free E-commerce!",
+    "description" : "Are you ready to embark on a journey that puts the power of e-commerce directly in your hands? At Nshades, we're revolutionizing the way you approach online business. Say goodbye to hefty upfront fees and complex setup processes. Say hello to a seamless, hassle-free e-commerce experience that empowers you to sell your products online, effortlessly.",
+    "img": "/assets/images/LandingSVG.svg",
+    "primaryAction": {
+      "text": "Get started",
+      "href": "/SignUpPage"
+    },
+    "secondaryAction": {
+      "text": "Email us",
+      "href": "mailto:issaafakattan@gmail.com?subject=I like react landing page!"
+    }
+  },
+  "product": {
+    "title": "Our Unique Approach: Free E-commerce, Commission-Based Growth",
+    "items": [
+      {
+        "title": "About Us",
+        "description" : "At Nshades, we believe that everyone should have the opportunity to unleash their entrepreneurial spirit and tap into the vast potential of online commerce. That's why we've built a platform that breaks down barriers and enables you to start your e-commerce journey without any financial burden.",
+        "img": "/assets/images/product1.jpg"
+      },
+      {
+        "title": "Make it your own!",
+        "description" : "Here's how it works: You bring your products, creativity, and enthusiasm. We provide you with a fully functional, beautifully designed e-commerce page that showcases your brand and offerings to the world. The best part? You pay absolutely nothing upfront That's right, zero initial cost.Instead, we operate on a commission-based model. When your products fly off the virtual shelves and your business thrives, we take a small commission on the sales you make. This means our success is tied to yours, creating a win-win partnership where we're invested in your growth and prosperity.",
+        "img": "/assets/images/product2.jpg"
+      }
+    ]
+  },
+  "features": {
+    "title": "",
+    "subtitle": "Why Choose Nshades?",
+    "description" : "\t\t",
+    "items": [
+      {
+        "name": "Cost-Free Launch",
+        "description" : "Starting an online business shouldn't drain your wallet. With Nshades, you can kick-start your e-commerce journey without any financial barriers.",
+        "icon": "/assets/images/react.png"
+      },
+      {
+        "name": "User-Friendly Interface",
+        "description" : "User-Friendly Interface: Our platform is designed with you in mind. You don't need to be a tech expert to set up shop and start selling. It's as easy as a few clicks.",
+        "icon": "/assets/images/tailwindcss.svg"
+      },
+      {
+        "name": "Stunning Storefronts",
+        "description":"Your brand deserves to shine. Our customizable templates and design options allow you to create a captivating storefront that resonates with your audience.",
+        "icon": "/assets/images/nextjs.svg"
+      },
+      {
+        "name": "Secure Transactions",
+        "description" : "Rest easy knowing that your customers' transactions are secured by top-notch encryption and payment gateways.",
+        "icon": "/assets/images/ts.png"
+      },
+      {
+        "name": "Robust Analytics",
+        "description" : "Track your performance, monitor sales trends, and make informed decisions to drive your business forward.",
+        "icon": "/assets/images/ts.png"
+      },
+      {
+        "name": "Marketing Support",
+        "description" : "We're not just about setting up shop – we're here to help you succeed. Benefit from marketing resources, tips, and strategies to boost your online presence.",
+        "icon": "/assets/images/ts.png"
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Pricing",
+    "items": [
+      {
+        "name": "Free",
+        "price": "₹ 0",
+        "priceDetails": "for one user",
+        "features": [
+          "1 user",
+          "Basic Support",
+          "1 GB of storage",
+          "Email support"
+        ]
+      },
+      {
+        "name": "Pro",
+        "price": "₹ 0",
+        "priceDetails": "per user",
+
+        "features": [
+          "5 users",
+          "Priority Support",
+          "10 GB of storage",
+          "Phone and Email support"
+        ]
+      },
+      {
+        "name": "Enterprise",
+        "price": "₹ 0",
+        "priceDetails": "per user",
+        "features": [
+          "50 users",
+          "24/7 Support",
+          "100 GB of storage",
+          "Phone and Email support"
+        ]
+      }
+    ]
+  },
+  "about": {
+    "sections": [
+      {
+        "name": "Something",
+        "href": "#",
+        "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+      },
+      {
+        "name": "Something",
+        "href": "#",
+        "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+      },
+      {
+        "name": "Something",
+        "href": "#",
+        "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+      },
+      {
+        "name": "Something",
+        "href": "#",
+        "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."
+      }
+    ],
+    "socialMedia": {
+      "github": "#",
+      "twitter": "#",
+      "linkedin": "#"
+    }
+  }
+}

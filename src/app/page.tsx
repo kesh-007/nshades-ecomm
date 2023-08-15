@@ -10,17 +10,19 @@ import Order from "./Orders/page";
 import Inventory from "./Inventory/page";
 
 import  { Toaster } from 'react-hot-toast';
-// Orders page
-// Orders details page
+import SignUpPage from "./SignUpPage/page";
+// Orders page over
+// Orders details page over
 // inventory page
 // signup page
 //landing page.
+
 
 export default async function Home() {
 
   return (
     <main className=" ">
-      <Main pages={<Order/>}/>
+      <Main pages={<SignUpPage/>}/>
       <Toaster />
     </main>
   );

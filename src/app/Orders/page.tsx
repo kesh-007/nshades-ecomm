@@ -1,7 +1,6 @@
 "use client"
 
 import * as React from "react";
-import { useState } from "react";
 
 //import { Button } from "@/components/ui/button"
 import {
@@ -342,7 +341,7 @@ function DataTable(props) {
             variant="outline"
             size="sm"
             onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
+            className="bg-gray-200"
           >
             Next
           </Button>
@@ -357,11 +356,11 @@ export default function  Order(){
   return (
       <div className="h-screen px-5 py-3 w-full">
           <section className="mb-10 mt-5">
-              <p className="text-orange-500 my-3">Order's Details {">"}</p>
+              <p className="text-[#ec4755] my-3">Order's Details {">"}</p>
               <p className=""><b>Order's Details</b></p>
           </section>
           <section>
-              <p className="text-orange-500 font-bold mb-5">Payment section</p>
+              <p className="text-[#ec4755] font-bold mb-5">Payment section</p>
               <div>
                   <Tab/>
               </div>

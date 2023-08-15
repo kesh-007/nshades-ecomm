@@ -26,13 +26,13 @@ export default function  OrderDetails(){
     return (
         <div className="h-screen px-5 py-3 w-full">
             <section className="mb-10 mt-5">
-                <p className="text-orange-500 my-3">Order's Details {">"}</p>
-                <p className=""><b>Order's Details</b></p>
+                <p className="text-[#ec4755] my-3">Order's Details {">"}</p>
+                {/* <p className="text-[#ec4755]"><b>Order's Details</b></p> */}
             </section>
             <section>
-                <p className="text-orange-500 font-bold mb-5">Payment section</p>
+                <p className="text-[#ec4755] font-bold mb-5">Payment section</p>
                 <div className="sm:flex w-full gap-5">
-                    <div className="flex flex-col w-full shadow-lg shadow-500/50 rounded p-3"> 
+                    <div className="flex flex-col w-full rounded border rounded p-3"> 
                         <div className="border-b">
                             <div className="p-3">
                                 <p className="font-bold">Payment Authorized </p>
@@ -69,7 +69,7 @@ export default function  OrderDetails(){
                                         </Select>
                                     </FormControl>
 
-                                        <button className="bg-orange-500 p-3 text-white rounded">Finish Payment</button>
+                                        <button className="bg-[#ec4755] hover:bg-red-700 p-3 text-white rounded">Finish Payment</button>
                                     </div>
                                 </div>
                             </div>
@@ -150,7 +150,7 @@ function  TimeLine(){
 function Card({email , shippingAddress  , BillingAddress}){
     return (
         
-    <div className="sm:block hidden flex flex-col shadow-md shadow-gray-300 rounded-lg w-fit flex-1">
+    <div className="sm:block hidden flex flex-col border rounded-lg w-[25rem]">
         <div className="p-l-3 border-b px-10 p-3 w-full">
             <p className="font-bold">Contact</p>
             <p className="text-gray-500 w-full">{email}</p>
