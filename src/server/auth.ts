@@ -4,7 +4,7 @@ import {
   type NextAuthOptions,
   type DefaultSession,
 } from "next-auth";
-import DiscordProvider from "next-auth/providers/discord";
+import Credentials from "next-auth/providers/credentials";
 import { env } from "~/env.mjs";
 import { prisma } from "~/server/db";
 
@@ -35,6 +35,16 @@ declare module "next-auth" {
  * @see https://next-auth.js.org/configuration/options
  */
 export const authOptions: NextAuthOptions = {
+  pages : {
+    signIn:'/login',
+    signOut:'/',
+    error:'/login'
+
+
+  },
+  session : {
+    maxAge:300*60,
+  },
   callbacks: {
     session: ({ session, user }) => ({
       ...session,
@@ -46,10 +56,32 @@ export const authOptions: NextAuthOptions = {
   },
   adapter: PrismaAdapter(prisma),
   providers: [
-    DiscordProvider({
-      clientId: env.DISCORD_CLIENT_ID,
-      clientSecret: env.DISCORD_CLIENT_SECRET,
-    }),
+    Credentials({
+      name : "Credentails",
+      
+      credentials : {
+         
+          username : {
+              label : "username",
+              type : "text",
+              placeholder : "username : ",
+          },
+          password : {
+              label : "Password",
+              type : "password",
+              placeholder : " password",
+          }
+      },
+      async authorize(credentials) {
+          const user = { name : "harishm" , password : "123"}
+          if (credentials?.username === user.name && credentials?.password === user.password){
+              return user
+          }
+          else{
+              return null
+          }
+      }
+  }),
     /**
      * ...add more providers here.
      *

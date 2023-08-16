@@ -19,7 +19,7 @@ function PhoneSection(props:any){
       }
 
     function handleVerify(){
-
+        console.log(number)
         if(isNumeric(number)){
             setVerify(!verify);
         }
@@ -57,7 +57,10 @@ function PhoneSection(props:any){
                             <div className="flex max-sm:w-full flex-col mt-5">
                                 <div className="flex items-center border-[2px] border-gray-200 rounded-lg">
                                     <p className="my-2 px-1 border-gray-200">+91</p>
-                                    <input maxLength={10} type={"tel"} className=" w-full md:w-[50vh] px-2 rounded my-2 outline-none" onChange={(e)=>setNumber(e.target.value)}></input>
+                                    <input maxLength={10} type={"tel"} className=" w-full md:w-[50vh] px-2 rounded my-2 outline-none" onChange={(e)=>{
+                                        setNumber(e.target.value)
+                                        
+                                    }}></input>
                                 </div>
                                 {
                                     (number.length == 10)?

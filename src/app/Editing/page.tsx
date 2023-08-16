@@ -53,6 +53,7 @@ function AddProducts(){
   const [value, setValue] = useState('');
 
   return (
+    <div className="w-full flex gap-3 flex-col sm:flex-row ">
     <Card className="w-[350px] w-full">
       <CardHeader>
       </CardHeader>
@@ -74,6 +75,10 @@ function AddProducts(){
         </form>
       </CardContent>
     </Card>
+    <div>
+        <CardWithForm/>
+    </div>
+    </div>
   )
 }
 
@@ -103,18 +108,17 @@ function AdditionalDetails(){
   );
 }
 
-function MainSection(){
+function MainSection({title , description , data}){
     return (
         <div className="w-full h-full p-5 flex flex-col gap-10">
             <div className="w-full">
-                <p><b>Edit Product Details</b></p>
-                <p className="text-gray-400">Edit details about the product that you've posted.</p>
+                {/* <p><b>{title}Edit Product Details</b></p> */}
+                <p><b>{title}</b></p>
+                <p className="text-gray-400 whitespace-normal">{description}</p>
+                {/* <p className="text-gray-400">{description}Edit details about the product that you've posted.</p> */}
             </div>
             <div className="flex flex-col sm:flex-row gap-12 sm:gap-2">
                 <AddProducts/>
-                <div>
-                  <CardWithForm/>
-                </div>
             </div>
               <div className="my-5 flex h-1/9 flex-col gap-3">
                 <p className="text-black"><b>Add Pictures</b></p>
@@ -138,15 +142,12 @@ function MainSection(){
 }
 
 
-
-export default function Editing() {
+export default function Editing({title , description , data}) {
 
   return (
-    <div className="h-screen">
-
-        <div className="w-full h-full  overflow-y-scroll scroll whitespace-nowrap">
-            <MainSection/>
+        <div className="w-full h-screen  overflow-y-scroll scroll whitespace-nowrap">
+            <MainSection title={title} description={description} data = {data} />
         </div>
-    </div>
+    
   );
 }

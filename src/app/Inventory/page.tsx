@@ -132,7 +132,7 @@ export const columns: ColumnDef<Payment>[] = [
 
       return (
         <Link className="flex flex-1" href={"/Editing"}>
-            <div className="font-bold text-white md:w-[50%] bg-[#ec4755] p-2 flex rounded justify-between ">
+            <div className="font-bold text-white md:w-[50%] bg-[#ec4755] p-2 flex rounded justify-between">
               <p>Edit</p>
               <FiEdit2/>
             </div>
