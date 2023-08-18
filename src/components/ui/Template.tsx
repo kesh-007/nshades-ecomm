@@ -14,19 +14,46 @@ import {
     SelectValue,
   } from "~/components/ui/select"
 
+import {Input} from "~/components/ui/input";
+import { Label } from "~/components/ui/label";
+
 
 export default function  Template( {trigger , nav}){
 
-    const [pageHeading , setPageHeading] = useState("YourSiteName");
-    const [pageDescription , setPageDescription] = useState("Your site description...");
+    const [pageHeading , setPageHeading] = useState("SiteName");
+    const [pageDescription , setPageDescription] = useState("Site description...");
     const [handburger , setHandburger] = useState(true);
-    const [pageAboutObjec , setAboutPageObject] = useState({});
-    const [pageAboutDescriptionTitle , setPageAboutDescriptionTitle] = useState("It's We Drops product...");
-    const [pageAboutDescription , setPageAboutDescription] = useState("Wedrops: Elevating Eye and Ear Care. Discover a range of meticulously crafted drops designed to enhance your eye and ear health. Our premium solutions combine science and care to provide soothing relief and lasting well-being.");
-    const [pageImage , setPageImage] = useState("https://d2hg8ctx8thzji.cloudfront.net/healthpanda.net/wp-content/uploads/2020/02/5_effective_treatment_options_for_dry_eyes-715x505.jpg");
-    const [pageBgImage , setPageBgImage]  = useState("https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg");
+    const [pageAboutObjec , setAboutPageObject] = useState(null);
+    const [pageAboutDescriptionTitle , setPageAboutDescriptionTitle] = useState("");
+    const [pageAboutDescription , setPageAboutDescription] = useState("");
+    const [pageImage , setPageImage] = useState(null);
+    const [pageBgImage , setPageBgImage]  = useState(null);
     const [pageImageAlignLeft , setPageImageAlignLeft] = useState(true);
-    const [pageCompanyName , setPageCompanyName] = useState("YourCompanyName");
+    const [pageCompanyName , setPageCompanyName] = useState("CompanyName");
+
+    function handlePreview(event){
+
+        let file = event.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+              setPageBgImage(reader.result);
+            };
+            reader.readAsDataURL(file);
+          }
+    }
+
+    function handlePreviewAbout(event){
+        let file = event.target.files[0]
+        if (file){
+            const reader = new FileReader();
+            reader.onload = () => {
+                setPageImage(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    }
 
     return (
         <div className="h-screen w-screen">
@@ -48,7 +75,7 @@ export default function  Template( {trigger , nav}){
                 </div>
             </div>
             <div className="h-full flex">
-                <div className={`w-[20rem] ${(handburger)?"visible":"hidden"}`}>
+                <div className={`w-[20rem] ${(handburger)?"visible":"hidden"} max-sm:absolute z-[2] bg-white max-sm:w-[100%]`}>
                     {/* left section content */}
                     <div className="p-3 flex flex-col gap-10 overflow-y-auto  h-full">
                         <div className="flex flex-col gap-2">
@@ -57,7 +84,20 @@ export default function  Template( {trigger , nav}){
                             maxLength={15}
                             onChange={(e) => setPageCompanyName(e.target.value)}
                             className="border p-2 rounded m-1" 
-                            placeholder="Default Home Page"/>
+                            placeholder="ex. Google"/>
+                        </div>
+                        <div>
+                            <div className="grid w-full max-w-sm items-center gap-1.5">
+                            <Label htmlFor="picture">Background Image</Label>
+                            <Input id="picture" type="file" onChange={handlePreview} />
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div className="grid w-full max-w-sm items-center gap-1.5">
+                            <Label htmlFor="picture">About Image</Label>
+                            <Input id="picture" type="file" onChange={handlePreviewAbout} />
+                            </div>
                         </div>
                         <div className="flex flex-col gap-2">
                             <label>Heading</label>
@@ -65,7 +105,7 @@ export default function  Template( {trigger , nav}){
                             maxLength={35}
                             onChange={(e) => setPageHeading(e.target.value)}
                             className="border p-2 rounded m-1" 
-                            placeholder="Default Home Page"/>
+                            placeholder="ex. search the wen in a way you want.."/>
                         </div>
                         <div className="flex flex-col gap-2">
                             <label>Text</label>

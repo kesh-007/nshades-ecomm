@@ -5,19 +5,21 @@ import {LuSettings} from "react-icons/lu";
 import {AiOutlineUser} from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Inventory from "~/app/Inventory/page";
 import Order from "~/app/Orders/page";
 import ProductsPage from "~/app/ProductsPage/page";
 import Editing from "~/app/Editing/page";
 import Template from "./Template";
+import OrderDetails from "~/app/OrdersDetails/page";
 
 
-function SideMenu({ icon , menuName , options , onClick , sidebar_trigger ,show_default_nav}) {
+function SideMenu({ id , icon , menuName , options , onClick , sidebar_trigger ,show_default_nav , open}) {
 
-  const [menuPressed, setMenuPressed] = useState(false);
+  // const [menuPressed, setMenuPressed] = useState(0);
   const [selectedOption , setSelectedOption] = useState(false);
   const [data , setData] = useState("data");
+
 
   function handlePageSelection(option){
     if (option === "Inventory"){
@@ -33,6 +35,9 @@ function SideMenu({ icon , menuName , options , onClick , sidebar_trigger ,show_
         data = {data}
         />)
     }
+    else if (option === "Checkouts"){
+      onClick(<OrderDetails/>)
+    }
     else if (option === "Edit Page"){
       sidebar_trigger(false);
       show_default_nav(false);
@@ -43,11 +48,11 @@ function SideMenu({ icon , menuName , options , onClick , sidebar_trigger ,show_
   
   return (
     <div
-      className="flex flex-col hover:scale-110"
+      className="flex flex-col "
     >
       <div 
       
-      onClick={() => setMenuPressed(!menuPressed)}
+      // onClick={() => setMenuPressed(id)}
       className="flex w-full justify-between items-center active: p-3">
         <div>
             {icon}
@@ -55,14 +60,16 @@ function SideMenu({ icon , menuName , options , onClick , sidebar_trigger ,show_
         <p className="m-1 active:underline"><b>{menuName}</b></p>
 
         {
-            (!menuPressed)?
+            // (!menuPressed)?
+            (open)?
                 <IoMdArrowDropdown/>
             :
                 <IoMdArrowDropup/>
         }
       </div>
       <div className="w-full flex justify-center">
-        {menuPressed ? (
+        {/* {(menuPressed == id) ? ( */}
+        { open ? (
           <div className=" w-full ml-5 ">
             {options.map((option:any, index:any) => (
               <div 
@@ -93,6 +100,27 @@ export default function SideBar({page}){
     const [handBurger , setHandBurger] = useState(true);
     const [currentPage , setCurrentPage] = useState(page);
     const [showNav , setShowNav] = useState(true); 
+    const [isMobile, setIsMobile] = useState(false);
+    const [menuOpen , setMenuOpen] = useState(null);
+
+    useEffect(() => {
+      function handleResize() {
+        setIsMobile(window.innerWidth <= 768);
+        setHandBurger(window.innerWidth > 768);
+         // Adjust the breakpoint as needed
+      }
+  
+      // Initial check
+      handleResize();
+  
+      // Add event listener to update when window is resized
+      window.addEventListener('resize', handleResize);
+  
+      // Clean up the event listener when component unmounts
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
 
     const options = [
         {icon : <RxDashboard/> , name : "Dashboard" , optionlist : [] },
@@ -118,38 +146,16 @@ export default function SideBar({page}){
         {icon : <LuSettings/> , name : "Settings" , optionlist : [{icon : <HiOutlineShoppingBag/> , name : "Edit Page"} , "option2"] },
         
       ];
-      
-    // return (
-    //   <div>
-    //     <section className="p-3 flex items-center gap-5 shadow-lg shadow-gray-500/20 h-[4rem]">
-    //       <button onClick={() => setHandBurger(!handBurger)}>
-    //           <GiHamburgerMenu/>
-    //       </button>
-    //       <span className="font-bold text-lg">NShades</span>
-    //     </section>
-      
-    //   {(handBurger)?
-    //     <div className="bg-[#ec4755] h-screen text-white sm:block absolute md:static left-0  top-0 bottom-0 p-5 sm:p-3 w-[17rem]">
-    //           <div className="px-3">
-    //             <GiHamburgerMenu onClick={() => callback(!handBurger)} className="md:hidden"/>
-    //           </div>
-    //       <div className="py-4">
-    //         {options.map((option , index) => (
-    //           <SideMenu icon={option.icon} menuName={option.name} options={option.optionlist} key={index}/>
-    //         ))}
-    //       </div>
-    //     </div>
-    //       :
-    //       <></>
-    //     }
-    //     </div>
-    // );
 
-    
+      function handleMenuClick(index){
+        
+        setMenuOpen(index == menuOpen ? null : index);
+      
+    }
 
     return (
-      <div className="w-screen h-screen">
-        <div className={`p-3 gap-5 flex items-cetner shadow-lg shadow-gray-500/20 ${(showNav)?"visible":"hidden"}`}>
+      <div className="w-screen h-screen overflow-y-scroll">
+        <div className={`p-3 gap-5 flex items-cetner border ${(showNav)?"visible":"hidden"}`}>
             <button onClick={()=>setHandBurger(!handBurger)}>
                 <GiHamburgerMenu/>
             </button>
@@ -164,15 +170,20 @@ export default function SideBar({page}){
                 </button>
             </div>
             {options.map((option , index) => (
-                  <SideMenu 
+              <div onClick={()=>handleMenuClick(index)}>
+                <SideMenu 
+                      id = {index + 1}
                       icon={option.icon} 
                       menuName={option.name} 
                       options={option.optionlist} 
                       key={index}
                       onClick = {setCurrentPage}
+                      open={(menuOpen === index)}
                       sidebar_trigger={setHandBurger}
                       show_default_nav = {setShowNav}
                   />
+              </div>
+                  
             ))}
             
           </div>

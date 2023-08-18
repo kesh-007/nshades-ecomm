@@ -5,8 +5,17 @@ import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeli
 import "react-vertical-timeline-component/style.min.css";
 import { toast } from "react-hot-toast";
 
-import Select from '@mui/material/Select';
 import { FormControl, InputLabel, MenuItem } from "@mui/material";
+
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
+  } from "~/components/ui/select"
 
 export default function  OrderDetails(){
 
@@ -24,14 +33,14 @@ export default function  OrderDetails(){
     const [option , setOption] = useState("More");
 
     return (
-        <div className="h-screen px-5 py-3 w-full">
-            <section className="mb-10 mt-5">
+        <div className="h-screen px-5 py-5 w-full">
+            {/* <section className="mb-10 mt-5">
                 <p className="text-[#ec4755] my-3">Order's Details {">"}</p>
-                {/* <p className="text-[#ec4755]"><b>Order's Details</b></p> */}
-            </section>
-            <section>
+                <p className="text-[#ec4755]"><b>Order's Details</b></p>
+            </section> */}
+            <section >
                 <p className="text-[#ec4755] font-bold mb-5">Payment section</p>
-                <div className="sm:flex w-full gap-5">
+                <div className="sm:flex  w-full gap-5">
                     <div className="flex flex-col w-full rounded border rounded p-3"> 
                         <div className="border-b">
                             <div className="p-3">
@@ -54,9 +63,9 @@ export default function  OrderDetails(){
                                 <div className="p-3 border-y">
                                     <p className="font-bold">Paid by customer</p>
                                 </div>
-                                <div className="p-3 flex justify-end">
-                                    <div className="flex gap-5">
-                                    <FormControl className="w-[100px]">
+                                <div className="p-3 flex justify-end ">
+                                    <div className="flex gap-5 items-center ">
+                                    {/* <FormControl className="w-[100px]">
                                         <InputLabel id="demo-simple-select-label">More</InputLabel>
                                         <Select
                                             labelId="demo-simple-select-label"
@@ -67,15 +76,30 @@ export default function  OrderDetails(){
                                         >
                                             <MenuItem value={10}>Ten</MenuItem>
                                         </Select>
-                                    </FormControl>
-
-                                        <button className="bg-[#ec4755] hover:bg-red-700 p-3 text-white rounded">Finish Payment</button>
+                                    </FormControl> */}
+                                            <div>
+                                                    <Select onValueChange={(e) => console.log(e)}>
+                                                        <SelectTrigger className="outline-none">
+                                                            <SelectValue placeholder="More" />
+                                                        </SelectTrigger>
+                                                        <SelectContent>
+                                                            <SelectGroup >
+                                                                <SelectLabel>More</SelectLabel>
+                                                                <SelectItem value="left" >Option1</SelectItem>
+                                                                <SelectItem value="right">Option2</SelectItem>
+                                                            </SelectGroup>
+                                                        </SelectContent>
+                                                    </Select>
+                                            </div>
+                                                    <button className="bg-[#ec4755] hover:bg-red-700 p-[0.5rem] text-white rounded">Finish Payment</button>
                                     </div>
                                 </div>
                             </div>
                     </div>
                     
-                    <Card email={"example.com"} shippingAddress = {"shipping address"} BillingAddress = {"billing address"}/>
+                    <div className="mt-5">
+                        <Card email={"example.com"} shippingAddress = {"shipping address"} BillingAddress = {"billing address"}/>
+                    </div>
                 </div>
             </section>
             <section>
@@ -121,12 +145,12 @@ function  TimeLine(){
       ]);
     
       return (
-        <div className="w-full rounded flex flex-col my-5 bg-gray-200 shadow-lg shadow-gray-20/500 p-3">
+        <div className="w-full rounded flex flex-col my-5 bg-gray-200 p-3">
 
             <div className="w-[100%] border rounded">
-                <input value={discription} placeholder="Leave a commet" onKeyDown={(e) => handleKeyDown(e)} className="w-full p-3 outline-none rounded" onChange={(e) => setDiscription(e.target.value)}></input>
+                <input value={discription} placeholder="Leave a commet ..." onKeyDown={(e) => handleKeyDown(e)} className="w-full p-3 outline-none rounded" onChange={(e) => setDiscription(e.target.value)}></input>
             </div>
-            
+
             <VerticalTimeline>
       {
         events.map((event, index) => (
@@ -150,7 +174,7 @@ function  TimeLine(){
 function Card({email , shippingAddress  , BillingAddress}){
     return (
         
-    <div className="sm:block hidden flex flex-col border rounded-lg w-[25rem]">
+    <div className="flex flex-col border rounded-lg sm:w-[25rem]">
         <div className="p-l-3 border-b px-10 p-3 w-full">
             <p className="font-bold">Contact</p>
             <p className="text-gray-500 w-full">{email}</p>

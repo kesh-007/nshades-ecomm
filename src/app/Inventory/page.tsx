@@ -25,6 +25,7 @@ import {
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu"
 import { Input } from "~/components/ui/input"
+
 import {
   Table,
   TableBody,
@@ -36,10 +37,51 @@ import {
 
 import {FiEdit2} from "react-icons/fi";
 import Link from "next/link";
-import { Layout } from "lucide-react";
 
 const data: Payment[] = [
   {
+    id : "m5",
+    product : "Medium",
+    inventory : 10,
+    type : "Type 1",
+    vendor : "Vendor X",
+    imageURL : "https://www.bing.com/th?id=OIP.-f35OJgC731Ar7VVvPYBxwHaJ3&w=154&h=206&c=8&rs=1&qlt=90&o=6&dpr=2.1&pid=3.1&rm=2",
+  },{
+    id : "m5",
+    product : "Medium",
+    inventory : 10,
+    type : "Type 1",
+    vendor : "Vendor X",
+    imageURL : "https://www.bing.com/th?id=OIP.-f35OJgC731Ar7VVvPYBxwHaJ3&w=154&h=206&c=8&rs=1&qlt=90&o=6&dpr=2.1&pid=3.1&rm=2",
+  },{
+    id : "m5",
+    product : "Medium",
+    inventory : 10,
+    type : "Type 1",
+    vendor : "Vendor X",
+    imageURL : "https://www.bing.com/th?id=OIP.-f35OJgC731Ar7VVvPYBxwHaJ3&w=154&h=206&c=8&rs=1&qlt=90&o=6&dpr=2.1&pid=3.1&rm=2",
+  },{
+    id : "m5",
+    product : "Medium",
+    inventory : 10,
+    type : "Type 1",
+    vendor : "Vendor X",
+    imageURL : "https://www.bing.com/th?id=OIP.-f35OJgC731Ar7VVvPYBxwHaJ3&w=154&h=206&c=8&rs=1&qlt=90&o=6&dpr=2.1&pid=3.1&rm=2",
+  },{
+    id : "m5",
+    product : "Medium",
+    inventory : 10,
+    type : "Type 1",
+    vendor : "Vendor X",
+    imageURL : "https://www.bing.com/th?id=OIP.-f35OJgC731Ar7VVvPYBxwHaJ3&w=154&h=206&c=8&rs=1&qlt=90&o=6&dpr=2.1&pid=3.1&rm=2",
+  },{
+    id : "m5",
+    product : "Medium",
+    inventory : 10,
+    type : "Type 1",
+    vendor : "Vendor X",
+    imageURL : "https://www.bing.com/th?id=OIP.-f35OJgC731Ar7VVvPYBxwHaJ3&w=154&h=206&c=8&rs=1&qlt=90&o=6&dpr=2.1&pid=3.1&rm=2",
+  },{
     id : "m5",
     product : "Medium",
     inventory : 10,
@@ -308,7 +350,7 @@ export default function Inventory(){
                     <button className="text-white bg-[#ec4755] p-2 rounded">Manage Directory</button>
                 </div>
             </div>
-            <div className="my-10">
+            <div className="mt-10">
                 <DataTable/>
             </div>
         </div>
