@@ -14,7 +14,7 @@ import Template from "./Template";
 import OrderDetails from "~/app/OrdersDetails/page";
 
 
-function SideMenu({ id , icon , menuName , options , onClick , sidebar_trigger ,show_default_nav , open}) {
+function SideMenu({ id , icon , menuName , options , onClick , sidebar_trigger ,show_default_nav , open , current_page}) {
 
   // const [menuPressed, setMenuPressed] = useState(0);
   const [selectedOption , setSelectedOption] = useState(false);
@@ -41,7 +41,7 @@ function SideMenu({ id , icon , menuName , options , onClick , sidebar_trigger ,
     else if (option === "Edit Page"){
       sidebar_trigger(false);
       show_default_nav(false);
-      onClick(<Template trigger={sidebar_trigger} nav = {show_default_nav}/>)
+      onClick(<Template trigger={sidebar_trigger} nav = {show_default_nav} current_page = {current_page}/>)
     }
   }
   
@@ -61,7 +61,7 @@ function SideMenu({ id , icon , menuName , options , onClick , sidebar_trigger ,
 
         {
             // (!menuPressed)?
-            (open)?
+            (!open)?
                 <IoMdArrowDropdown/>
             :
                 <IoMdArrowDropup/>
@@ -181,6 +181,7 @@ export default function SideBar({page}){
                       open={(menuOpen === index)}
                       sidebar_trigger={setHandBurger}
                       show_default_nav = {setShowNav}
+                      current_page={setCurrentPage}
                   />
               </div>
                   

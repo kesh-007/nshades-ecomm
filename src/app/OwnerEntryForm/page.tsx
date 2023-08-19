@@ -3,6 +3,8 @@
 import { useState } from "react";
 import React, { useEffect } from 'react';
 import $ from 'jquery';
+import { Label } from "~/components/ui/label";
+import { Input } from "~/components/ui/input";
 
 
 function PhoneSection(props:any){
@@ -109,116 +111,127 @@ function PhoneSection(props:any){
 }
 
 
-export default function OwnerEnteryForm(){
+// export default function OwnerEnteryForm(){
 
-    const [firstName , setFirstName] = useState("");
-    const [lastName , setLastName] = useState("");
-    const [zipcode , setZipCode] = useState("");
-    const [state , setState] = useState("Select");
-    const [address , setAddress] = useState("");
-    const [suit , setSuit] = useState("");
-    const [city , setCity] = useState("");
+//     const [firstName , setFirstName] = useState("");
+//     const [lastName , setLastName] = useState("");
+//     const [zipcode , setZipCode] = useState("");
+//     const [state , setState] = useState("Select");
+//     const [address , setAddress] = useState("");
+//     const [suit , setSuit] = useState("");
+//     const [city , setCity] = useState("");
 
     
-    const otp = Math.floor(1000 + Math.random() * 9000);
+//     const otp = Math.floor(1000 + Math.random() * 9000);
 
 
-    console.log(otp);
-    const indianStates = [
-        {code: "NON", name : "Select"},
-        { code: "AP", name: "Andhra Pradesh" },
-        { code: "AR", name: "Arunachal Pradesh" },
-        { code: "AS", name: "Assam" },
-        { code: "BR", name: "Bihar" },
-        { code: "CT", name: "Chhattisgarh" },
-        { code: "GA", name: "Goa" },
-        { code: "GJ", name: "Gujarat" },
-        { code: "HR", name: "Haryana" },
-        { code: "HP", name: "Himachal Pradesh" },
-        { code: "JH", name: "Jharkhand" },
-        { code: "KA", name: "Karnataka" },
-        { code: "KL", name: "Kerala" },
-        { code: "MP", name: "Madhya Pradesh" },
-        { code: "MH", name: "Maharashtra" },
-        { code: "MN", name: "Manipur" },
-        { code: "ML", name: "Meghalaya" },
-        { code: "MZ", name: "Mizoram" },
-        { code: "NL", name: "Nagaland" },
-        { code: "OD", name: "Odisha" },
-        { code: "PB", name: "Punjab" },
-        { code: "RJ", name: "Rajasthan" },
-        { code: "SK", name: "Sikkim" },
-        { code: "TN", name: "Tamil Nadu" },
-        { code: "TG", name: "Telangana" },
-        { code: "TR", name: "Tripura" },
-        { code: "UP", name: "Uttar Pradesh" },
-        { code: "UT", name: "Uttarakhand" },
-        { code: "WB", name: "West Bengal" }
-      ];
+//     console.log(otp);
+//     const indianStates = [
+//         {code: "NON", name : "Select"},
+//         { code: "AP", name: "Andhra Pradesh" },
+//         { code: "AR", name: "Arunachal Pradesh" },
+//         { code: "AS", name: "Assam" },
+//         { code: "BR", name: "Bihar" },
+//         { code: "CT", name: "Chhattisgarh" },
+//         { code: "GA", name: "Goa" },
+//         { code: "GJ", name: "Gujarat" },
+//         { code: "HR", name: "Haryana" },
+//         { code: "HP", name: "Himachal Pradesh" },
+//         { code: "JH", name: "Jharkhand" },
+//         { code: "KA", name: "Karnataka" },
+//         { code: "KL", name: "Kerala" },
+//         { code: "MP", name: "Madhya Pradesh" },
+//         { code: "MH", name: "Maharashtra" },
+//         { code: "MN", name: "Manipur" },
+//         { code: "ML", name: "Meghalaya" },
+//         { code: "MZ", name: "Mizoram" },
+//         { code: "NL", name: "Nagaland" },
+//         { code: "OD", name: "Odisha" },
+//         { code: "PB", name: "Punjab" },
+//         { code: "RJ", name: "Rajasthan" },
+//         { code: "SK", name: "Sikkim" },
+//         { code: "TN", name: "Tamil Nadu" },
+//         { code: "TG", name: "Telangana" },
+//         { code: "TR", name: "Tripura" },
+//         { code: "UP", name: "Uttar Pradesh" },
+//         { code: "UT", name: "Uttarakhand" },
+//         { code: "WB", name: "West Bengal" }
+//       ];
       
       
 
-    return (
-        <div className="h-screen px-10 md:px-20 pt-5">
-            <div className="h-full">
-                <div className="flex text-lg flex-col justify-center items-center">
-                    <p><b>Add an address so you can get paid.</b></p>
-                    <p className="text-sm text-gray-500">This will be used as your default business address.</p>
-                </div>
-                <div className="flex flex-col justify-center mt-10">
-                    <div className="flex justify-center flex-col items-center">
-                    <div className="block sm:flex w-full">
-                        <div className="flex justify-center flex-col w-full items-start m-[0.5rem]">
-                            <p>First name</p>
-                            <input type={"text"} className="outline p-2 outline-gray-200 rounded my-2 w-full" onChange={(e) =>setFirstName(e.target.value)}></input>
-                        </div>
-                        <div className="flex justify-center flex-col w-full items-start m-[0.5rem]">
+//     return (
+//         <div className="h-screen px-10 md:px-20 pt-5">
+//             <div className="h-full">
+//                 <div className="flex text-lg flex-col justify-center items-center">
+//                     <p><b>Add an address so you can get paid.</b></p>
+//                     <p className="text-sm text-gray-500">This will be used as your default business address.</p>
+//                 </div>
+//                 <div className="flex flex-col justify-center mt-10">
+//                     <div className="flex justify-center flex-col items-center">
+//                     <div className="block sm:flex w-full">
+//                         <div className="flex justify-center flex-col w-full items-start m-[0.5rem]">
+//                             <p>First name</p>
+//                             <input type={"text"} className="outline p-2 outline-gray-200 rounded my-2 w-full" onChange={(e) =>setFirstName(e.target.value)}></input>
+//                         </div>
+//                         <div className="flex justify-center flex-col w-full items-start m-[0.5rem]">
                             
-                            <label>Last name</label>
-                            <input type={"text"} className="outline outline-gray-200 p-2 rounded my-2 w-full" onChange={(e) =>setLastName(e.target.value)}></input>
-                        </div>
-                    </div>
-                    <div className="flex w-full"> 
-                        <div className="flex justify-center w-full flex-col items-start m-[0.5rem]">
-                            <label>Address</label>
-                            <textarea rows={4} className="outline outline-gray-200 p-2  w-full rounded my-2 resize-none" onChange={(e) =>setAddress(e.target.value)}></textarea>
-                        </div>
+//                             <label>Last name</label>
+//                             <input type={"text"} className="outline outline-gray-200 p-2 rounded my-2 w-full" onChange={(e) =>setLastName(e.target.value)}></input>
+//                         </div>
+//                     </div>
+//                     <div className="flex w-full"> 
+//                         <div className="flex justify-center w-full flex-col items-start m-[0.5rem]">
+//                             <label>Address</label>
+//                             <textarea rows={4} className="outline outline-gray-200 p-2  w-full rounded my-2 resize-none" onChange={(e) =>setAddress(e.target.value)}></textarea>
+//                         </div>
 
-                        <div className="flex justify-center w-full  flex-col items-start m-[0.5rem]">
+//                         <div className="flex justify-center w-full  flex-col items-start m-[0.5rem]">
                             
-                            <label>Suit</label>
-                            <textarea rows={4} className="outline outline-gray-200 p-2  w-full rounded my-2 resize-none" onChange={(e) =>setSuit(e.target.value)}></textarea>
+//                             <label>Suit</label>
+//                             <textarea rows={4} className="outline outline-gray-200 p-2  w-full rounded my-2 resize-none" onChange={(e) =>setSuit(e.target.value)}></textarea>
 
-                        </div>
-                    </div>
+//                         </div>
+//                     </div>
                     
-                    <div className="flex w-full">
+//                     <div className="flex w-full">
 
-                        <div className="flex justify-center w-full flex-col items-start m-[0.5rem]">
-                            <label>City</label>
-                            <input type={"text"} className="outline w-full outline-gray-200  p-2 rounded my-2" onChange={(e) =>setCity(e.target.value)}></input>
-                        </div>
-                        <div className="flex justify-center flex-col w-full items-start m-[0.5rem]">
-                            <label>State</label>
-                            <select className="w-full p-2 m-[0.5rem] border-[2px] border-gray-100 rounded" onChange={(e) =>setState(e.target.value)}>
-                                {
-                                    indianStates.map((state)=>(
-                                        <option key={state.code}>{state.name}</option>
-                                    ))
-                                }
-                            </select>
-                        </div>
+//                         <div className="flex justify-center w-full flex-col items-start m-[0.5rem]">
+//                             <label>City</label>
+//                             <input type={"text"} className="outline w-full outline-gray-200  p-2 rounded my-2" onChange={(e) =>setCity(e.target.value)}></input>
+//                         </div>
+//                         <div className="flex justify-center flex-col w-full items-start m-[0.5rem]">
+//                             <label>State</label>
+//                             <select className="w-full p-2 m-[0.5rem] border-[2px] border-gray-100 rounded" onChange={(e) =>setState(e.target.value)}>
+//                                 {
+//                                     indianStates.map((state)=>(
+//                                         <option key={state.code}>{state.name}</option>
+//                                     ))
+//                                 }
+//                             </select>
+//                         </div>
                         
-                            <div className="flex w-full justify-center flex-col items-start m-5">
-                                <label>ZIP</label>
-                                <input className="outline outline-gray-200 w-full p-2 rounded my-2" onChange={(e) =>setZipCode(e.target.value)}></input>
-                            </div>
-                    </div>
-                        <PhoneSection otp={otp}/>
-                    </div>
-                </div>
-            </div>
+//                             <div className="flex w-full justify-center flex-col items-start m-5">
+//                                 <label>ZIP</label>
+//                                 <input className="outline outline-gray-200 w-full p-2 rounded my-2" onChange={(e) =>setZipCode(e.target.value)}></input>
+//                             </div>
+//                     </div>
+//                         <PhoneSection otp={otp}/>
+//                     </div>
+//                 </div>
+//             </div>
 
+//         </div>
+//     );
+// }
+
+export default function OwnerEnteryForm(){
+    return (
+        <div className="bg-orange-500 h-screen">
+            <div className="grid w-full max-w-sm items-center gap-1.5">
+                <Label htmlFor="email">Email</Label>
+                <Input type="email" id="email" placeholder="Email" />
+            </div>
         </div>
-    );
+    )
 }

@@ -16,9 +16,10 @@ import {
 
 import {Input} from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
+import Inventory from "~/app/Inventory/page";
 
 
-export default function  Template( {trigger , nav}){
+export default function  Template( {trigger , nav , current_page}){
 
     const [pageHeading , setPageHeading] = useState("SiteName");
     const [pageDescription , setPageDescription] = useState("Site description...");
@@ -66,6 +67,7 @@ export default function  Template( {trigger , nav}){
                         setHandburger(false)
                         trigger(true)
                         nav(true)
+                        current_page(<Inventory/>)
                         
                     }}>NShades</p>
                 </div>
